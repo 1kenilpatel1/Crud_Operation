@@ -19,7 +19,6 @@ export class ApiCategoryService {
   }
 
   updateData(form : object, id : number){
-    console.log(form);
     return this._http.put('https://reqres.in/api/users',form, id);
   }
 
