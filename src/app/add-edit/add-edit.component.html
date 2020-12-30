@@ -1,0 +1,41 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<div class="container">
+    <div class="row">
+        {{dataForm.value | json }} {{ 100000000 | currencyInr }}
+    </div>
+    <div class="row">
+
+        <div class="col-md-3"></div>
+        <div class="col">
+            <form #dataForm="ngForm" (ngSubmit)="addStudent(dataForm.value)">
+                <div class="mb-3">
+                    <label for="first" class="form-label">ID</label>
+                    <input type="number" name="ID" [(ngModel)]="data.id" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="first" class="form-label">First Name</label>
+                    <input type="text" class="form-control" name="first_name" [(ngModel)]="data.first_name" #first_name="ngModel" aria-describedby="FirstHelp" required>
+                    <span style="color: red;" *ngIf="first_name.touched && !first_name.valid" class="help-block">Plese Enter First Name</span>
+                </div>
+                <div class="mb-3">
+                    <label for="first" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" [(ngModel)]="data.last_name" #last_name="ngModel" aria-describedby="FirstHelp" required>
+                    <span style="color: red;" *ngIf="last_name.touched && !last_name.valid" class="help-block">Plese Enter Last Name</span>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="email" [(ngModel)]="data.email" #email="ngModel" aria-describedby="emailHelp" required>
+                    <span style="color: red;" *ngIf="email.touched && !email.valid" class="help-block">Plese Enter Email</span>
+                </div>
+                <div class="mb-3">
+                    <label for="first" class="form-label">Image URL</label>
+                    <input type="text" class="form-control" name="image" #image="ngModel" [(ngModel)]="data.avatar" aria-describedby="FirstHelp" required>
+                    <span style="color: red;" *ngIf="image.touched && !image.valid" class="help-block">Plese Enter image</span>
+                </div>
+                <button class="btn btn-primary">Submit</button>
+                <button class="btn btn-danger">cancel</button>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
